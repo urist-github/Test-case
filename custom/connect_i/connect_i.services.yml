@@ -1,0 +1,16 @@
+services:
+  connect_i.decorated_service:
+    class: Drupal\connect_i\DecoratedService
+    decorates: contrib_module.original_service
+    arguments: ['@connect_i.decorated_service.inner', '@entity_type.manager', '@current_route_match']
+
+  connect_i.route_subscriber:
+    class: Drupal\connect_i\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  connect_i.custom_access_check:
+    class: Drupal\connect_i\Access\CustomAccessCheck
+    arguments: [ '@current_user', '@entity_type.manager', '@current_route_match']
+    tags:
+      - { name: access_check, applies_to: _custom_access_check }

@@ -1,0 +1,43 @@
+<?php
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ *
+ * This function is triggered when the module is installed. It's used to set up
+ * initial configurations, like adding a new field to an entity.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function connect_i_install() {
+  // Check if the field storage configuration for "field_privacy_setting" doesn't already exist.
+  // Field storage configuration defines the basic properties of a field like its type, cardinality etc.
+  if (!FieldStorageConfig::loadByName('user', 'field_privacy_setting')) {
+    FieldStorageConfig::create([
+      'field_name' => 'field_privacy_setting',
+      'entity_type' => 'user',
+      'type' => 'list_string',
+      'cardinality' => 1,
+      'translatable' => TRUE,
+      'settings' => [
+        'allowed_values' => [
+          'keep_private' => 'Keep private',
+          'no_restriction' => 'No restriction',
+        ],
+      ],
+    ])->save();
+  }
+
+  // Check if the field configuration for "field_privacy_setting" in user entity doesn't already exist.
+  // Field configuration defines additional properties like label, description, etc for a specific bundle (e.g., user).
+  if (!FieldConfig::loadByName('user', 'user', 'field_privacy_setting')) {
+    FieldConfig::create([
+      'field_name' => 'field_privacy_setting',
+      'entity_type' => 'user',
+      'bundle' => 'user',
+      'label' => 'Privacy Setting',
+    ])->save();
+  }
+}
