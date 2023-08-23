@@ -1,7 +1,0 @@
-name: 'Article Multistep Form'
-type: module
-description: 'Provides a multistep form for the ArticlePage content type.'
-package: Custom
-core_version_requirement: ^8 || ^9
-dependencies:
-  - drupal:node

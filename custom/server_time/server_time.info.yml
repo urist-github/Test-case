@@ -1,9 +1,0 @@
-name: 'Server Time'
-type: module
-description: 'Provides a block with real-time server information using lazy builder.'
-core_version_requirement: ^8 || ^9
-package: Custom
-dependencies:
-  - drupal:block
-version: '1.0'
-project: 'server_time'

@@ -1,4 +1,0 @@
-services:
-  contrib_module.original_service:
-    class: Drupal\contrib_module\OriginalService
-    arguments: [ '@current_route_match' ]
