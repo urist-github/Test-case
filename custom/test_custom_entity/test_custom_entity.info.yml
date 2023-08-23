@@ -1,0 +1,11 @@
+name: 'Custom Entity'
+type: module
+description: 'Provides a custom entity with a reference to a basic page node.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:views
+  - drupal:dynamic_entity_reference
+version: '1.0'
+project: 'custom_entity'

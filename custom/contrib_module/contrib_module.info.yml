@@ -1,0 +1,10 @@
+name: 'Contrib Module'
+type: module
+description: 'A contrib-style module for demonstration.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:user
+version: '1.0'
+project: 'contrib_module'

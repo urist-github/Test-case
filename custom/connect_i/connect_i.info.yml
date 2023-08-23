@@ -1,0 +1,9 @@
+name: 'Connect I'
+type: module
+description: 'Connect I Module for Drupal 9. Task requirements: [Brief summary of the task requirements]'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:node
+version: '1.0'
+project: 'connect_i'
