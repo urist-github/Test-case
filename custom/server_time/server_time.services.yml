@@ -1,0 +1,4 @@
+services:
+  server_time.get_server_time:
+    class: Drupal\server_time\ServerTimeService
+    arguments: []
